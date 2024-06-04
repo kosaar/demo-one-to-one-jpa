@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload Archive</title>
+</head>
+<body>
+<h1>Upload Archive</h1>
+<form action="#" th:action="@{/archive/upload}" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="file">Choose file</label>
+        <input type="file" id="file" name="file" accept=".zip,.tar.gz" required/>
+    </div>
+    <div>
+        <button type="submit">Upload</button>
+    </div>
+</form>
+<div th:if="${error}" th:text="${error}"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Archives</title>
+</head>
+<body>
+<h1>Archives</h1>
+<a href="/archive/create">Create New</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Archive Name</th>
+        <th>Uploader</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="archive : ${archives}">
+        <td th:text="${archive.id}"></td>
+        <td th:text="${archive.archiveMeta.archiveName}"></td>
+        <td th:text="${archive.archiveMeta.uploader}"></td>
+        <td>
+            <a th:href="@{/archive/edit/{id}(id=${archive.id})}">Edit</a>
+            <a th:href="@{/archive/delete/{id}(id=${archive.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
